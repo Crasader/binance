@@ -1,0 +1,162 @@
+.exchange {
+  height: 100%;
+
+  .wrapper {
+	height: calc(100% - #{$exchange-nav-height});
+  }
+
+  nav {
+	height: $exchange-nav-height;
+  }
+}
+
+.main-panel {
+  float: left;
+  height: 100%;
+  width: calc(100% - #{$exchange-sidebar-width});
+
+  .secondary-panel {
+	background-color: $exchange-panel-bg;
+	height: $exchange-order-history-height;
+	@include flexbox;
+	@include flex-direction(column);
+
+	.nav-tabs {
+	  @include flex-basis($exchange-nav-tabs-height);
+	  @include flex-shrink(0);
+	}
+	.tab-content {
+	  overflow: auto;
+	}
+  }
+}
+
+.chart-panel, .secondary-panel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.chart-panel {
+  height: calc(100% - #{$exchange-order-history-height});
+}
+
+.sidebar {
+  float: left;
+  background-color: $exchange-panel-bg;
+  width: $exchange-sidebar-width;
+  height: 100%;
+  @include flexbox;
+  @include flex-direction(column);
+
+  .market-panel {
+	@include flex(1);
+	@include flexbox;
+	@include flex-direction(row);
+
+	.orders-panel, .orders-history-panel {
+	  @include flex(1);
+	  @include flexbox;
+	  @include flex-direction(column)
+	}
+  }
+
+  .trade-panel {
+	background-color: $exchange-panel-bg;
+	@include flex-basis($exchange-trade-panel-height);
+	@include flex-shrink(0);
+  }
+}
+
+.panel-title {
+  text-transform: uppercase;
+  color: transparentize($exchange-text-color, 0.6);
+  font-weight: 700;
+  height: 38px;
+  line-height: 38px;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.chart-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+@include media-breakpoint-down(lg) {
+  .main-panel, .sidebar {
+	height: auto;
+	width: 100%;
+	float: none;
+  }
+
+  .main-panel {
+	.chart-panel {
+	  height: 60vh;
+	}
+  }
+
+  .sidebar {
+	.trade-panel {
+	  @include order(-1);
+	}
+  }
+
+  .trade-panel {
+	border-bottom: 24px solid $exchange-bg;
+	.input-group .input-group-text {
+		padding-left: 0.3rem;
+		padding-right: 0.3rem;
+	}
+  }
+
+  .market-panel {
+	.orders-panel .table-wrapper {
+		height: 180px;
+	}
+	.orders-history-panel .table-wrapper {
+	  height: 398px;
+	}
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .sidebar {
+	.market-panel {
+	  display: block;
+	}
+
+	.orders-panel {
+	  max-height: 400px;
+	}
+
+	.orders-history-panel {
+	  max-height: 300px; // TODO: is magic rn
+	}
+  }
+
+
+  .secondary-panel {
+	.tab-content, .tab-content .tab-pane, .tab-content .table-wrapper {
+	  height: 100%;
+	}
+  }
+
+  .navbar {
+	.nav-item, .market-selector .btn {
+	  font-size: 0.8rem;
+	}
+
+	.market-selector {
+	  position: initial;
+
+	  .dropdown-menu {
+		width: 100%;
+	  }
+	}
+
+	.brand-title {
+	  display: none;
+	}
+  }
+}

@@ -1,0 +1,16 @@
+.exchange {
+  background-color: $exchange-bg;
+  color: $exchange-text-color;
+}
+
+.green {
+  color: $buy-color;
+}
+
+.red {
+  color: $sell-color;
+}
+
+.bright {
+  color: transparentize($exchange-text-color, 0.2);
+}

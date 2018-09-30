@@ -1,0 +1,41 @@
+// Colors
+$primary-color: #4CAF50;
+$dark-color: #0b1011;
+$dark-light-color: #0e1416;
+
+// Bootstrap coloring
+$primary: $primary-color;
+
+
+// Typography
+//$dark-gray: #333;
+$font-color: #333;
+$font-light-color: white;
+
+// Loader
+$loader-color: white;
+$loader-size: 80px;
+
+
+// Exchange
+$exchange-bg: /*$dark-color;*/#202226;
+$exchange-panel-bg: lighten($exchange-bg, 3%);
+$exchange-light-bg: lighten($exchange-bg, 7%);
+$exchange-nav-bg: darken($exchange-bg, 3%);
+$exchange-text-color: white;
+
+$buy-color: #8ec919;
+$sell-color: #ff007a;
+
+$exchange-sidebar-width: 500px;
+$exchange-trade-panel-height: 256px;
+$exchange-order-history-height: 256px;
+$exchange-nav-height: 48px;
+$exchange-market-width: 254px;
+$exchange-nav-tabs-height: 24px;
+
+$spacing: 8px;
+
+// Scrollbar
+$scrollbar-bg: transparentize($dark-color, 0.8);
+$scrollbar-color: transparentize(white, 0.90);
